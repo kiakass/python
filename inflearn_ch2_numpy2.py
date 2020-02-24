@@ -36,3 +36,72 @@ matrix.ndim
 matrix.reshape(2,2,3)
 matrix.reshape(1,1,2,6)
 matrix.flatten()
+'''
+#Indexing & slicing
+리스트와 달리 행과 열을 나누어 slicing 이 가능하다.
+Matrix의 부분 집합을 추출할 때 유용함
+slideshare.net/PyData/introduction-to-numpy
+'''
+a = np.array([[1,2,3,4,5],[6,7,8,9,10]],int)
+a[:,2:]
+a[1,1:3]
+a[1:3]
+a[1]
+a[0]
+
+a = np.array([[1,2,5,8],[1,2,5,8],[1,2,5,8],[1,2,5,8]],int)
+a[1,:2]
+a[:,1:3]
+
+a = np.arange(100).reshape(10,10)
+a[:,-1].reshape(-1,1)
+
+
+'''
+#Create function
+'''
+np.arange(30)
+list(range(10))
+np.arange(0,5,1)
+
+np.arange(30).reshape(5,6)
+
+np.arange(0,5,0.1)
+list(range(0,5,0.1))
+np.arange(0,5,0.1).tolist()
+
+#초기화
+np.zeros(shape=(10,), dtype=np.int8)
+np.zeros((2,5))
+np.ones(shape=(10,), dtype=np.int8)
+np.ones((2,5))
+#초기화시키지않고 비워만줌
+np.empty(shape=(10,), dtype=np.int8)
+np.empty((3,5))
+
+np.ones((5,6))
+test_matrix = np.arange(30).reshape(5,6)
+# 1로 값을 채워줌
+np.ones_like(test_matrix)
+
+#identity - 단위 행렬을 생성함
+np.identity(n=3, dtype=np.int8)
+np.identity(n=5)
+
+#eye - 대각선이 1인행렬, k값의 시작 index의 변경
+np.eye(N=3, M=5, dtype=np.int8)
+np.eye(N=5)
+# k = start index
+np.eye(N=5,k=2)
+np.eye(3,5,k=2 )
+
+#diag - 대각 행렬의 값을 추출함
+matrix = np.arange(9).reshape(3,3)
+np.diag(matrix)
+np.diag(matrix,k=1)
+
+#random sampling - 데이터 분포에 따른 sampling
+#uniform : 균등분포
+np.random.uniform(0,1,10).reshape(2,5)
+#normal : 정규분포 표준편차 1: 1시그마내 1.96
+np.random.normal(0,2,10).reshape(2,5)
